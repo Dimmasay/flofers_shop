@@ -1,0 +1,81 @@
+@use "sass:math";
+
+// Підключення шрифтів ========================================================================
+// @import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700");
+
+// Підключити, якщо є локальні файли шрифтів
+@font-face {
+  font-family: Century Gothic;
+  font-display: swap;
+  src: url("./assets/fonts/CenturyGothic.woff2") format("woff2"), url("./assets/fonts/CenturyGothic.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+// За замовчуванням шрифт ===================================================================
+$fontFamily: "Roboto";
+$fontSize: 16px; //  - розмір шрифту за замовчуванням з макету
+
+// Основні кольори
+$mainColor: #3a3a3a; // Колір шрифту за замовчуванням\
+
+$oliveColor: #9C946B;
+$lightOliveColor: #E6E4DA;
+$greenColor: #5D6B00;
+$orangeColor: #F77E39;
+
+//Фільтри для SVG
+$blackFilter: invert(0%) sepia(100%) saturate(0%) hue-rotate(13deg) brightness(95%) contrast(105%);
+$whiteFilter: invert(100%) sepia(0%) saturate(0%) hue-rotate(93deg) brightness(103%) contrast(103%);
+
+
+// Налаштування адаптивної сітки ========================================================
+
+// Мінімальна ширина сторінки
+$minWidth: 320;
+// Ширина полотна (макету)
+$maxWidth: 1440;
+// Ширина обмежуючого контейнера (0 = немає обмеження)
+$maxWidthContainer: 1230; //додаємо падінги
+// Загальний відступ у контейнера
+// (30 = по 15px ліворуч і праворуч, 0 = немає відступу)
+$containerPadding: 30;
+
+// Ширина спрацьовування першого брейкпоінту
+$containerWidth: $maxWidthContainer + $containerPadding;
+
+// Брейк-поїнти
+$pc: $containerWidth + px; // ПК, ноутбуки, деякі планшети у горизонтальному положенні
+$tablet: 992px; // Планшеты, некоторые телефоны в горизонтальном положении
+$mobile: 767px; // Телефоны L
+$mobileSmall: 480px; // Телефоны S
+
+
+// Mixin ====================================================================================================
+@import "theme/mixin";
+
+// Обнулення ============================================================================
+@import "theme/null";
+
+
+// Основні стилі  =====================================================================
+body {
+  overflow-x: hidden;
+  color: $mainColor;
+}
+
+/*
+(i) Стилі будуть застосовуватись до
+всіх класів, що містять *__container
+Наприклад header__container, main__container і т.п.
+
+*/
+
+[class*="container"] {
+  //overflow: hidden;
+  //max-width: $maxWidthContainer + px;
+  //padding: 0px 15px;
+  //margin: 0 auto;
+}
+

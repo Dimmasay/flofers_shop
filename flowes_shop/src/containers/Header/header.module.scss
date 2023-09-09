@@ -1,0 +1,55 @@
+@import '../../index.scss';
+
+.wrapper {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: $oliveColor;
+  width: 100%;
+  padding: 22px 0px;
+}
+.container {
+  max-width: $maxWidthContainer + px;
+  padding: 0px 15px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+
+.logo {
+  position: relative;
+  width: 110px;
+  height: 35px;
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.list {
+  padding: 6px 0px;
+  display: flex;
+  align-items: center;
+  gap: 114px;
+  color: white;
+}
+
+.item {
+}
+
+.link {
+  font-family: Century Gothic;
+  font-size: 20px;
+  line-height: 24px;
+  transition: all 0.3s ease 0s;
+  &:hover {
+    text-decoration: underline;
+  }
+}

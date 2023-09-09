@@ -1,0 +1,55 @@
+@import "./../../index.scss";
+
+
+.container {
+  max-width: $maxWidthContainer + px;
+  padding: 0px 65px;
+  margin: 0 auto;
+  margin-bottom: 42px;
+}
+
+
+.list {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 39px;
+}
+
+.image {
+  height: 63px;
+  width: 63px;
+  flex: 0 0 63px;
+  position: relative;
+
+  &::before {
+    position: absolute;
+    z-index: 1;
+    content: '';
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-color: $oliveColor;
+  }
+
+  img {
+    position: absolute;
+    z-index: 5;
+    width: 32px;
+    height: 32px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+  }
+}
+
+.text {
+  flex: 1 1 auto;
+}
