@@ -3,9 +3,12 @@
 
 .container {
   max-width: $maxWidthContainer + px;
-  padding: 0px 65px;
+  padding-top: 0;
+  padding-bottom: 0;
   margin: 0 auto;
-  margin-bottom: 42px;
+  @include adaptiveValue('padding-right', 65, 15, 1);
+  @include adaptiveValue('padding-left', 65, 15, 1);
+  @include adaptiveValue('margin-bottom', 42, 20, 1);
 }
 
 
@@ -13,13 +16,27 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  @media (max-width: $mobile) {
+    flex-direction: column;
+    align-items: start;
+    padding-left: 20px;
+  }
+
 }
 
 
 .item {
   display: flex;
   align-items: center;
-  gap: 39px;
+  @include adaptiveValue('gap', 39, 20, 1);
+  &:not(:last-child) {
+    padding-right: 20px;
+  }
+  @media (max-width: $mobileSmall) {
+    padding-right: 0px;
+  }
 }
 
 .image {

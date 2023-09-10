@@ -1,4 +1,8 @@
+import pages from "./Pages.module.scss";
+
 export const CatalogPage = (props) => {
-    return (<h1>Catalog</h1>)
+    return (<div className={pages.containerCatalogPage}>
+            <div></div>
+    </div>)
 }
 

@@ -4,6 +4,7 @@
   $result: math.div($px, $from) * 100%;
   @return $result;
 }
+// @include adaptiveValue("property", 50, 20, 1);
 
 @mixin adaptiveValue($property, $startSize, $minSize, $type) {
   $addSize: $startSize - $minSize;

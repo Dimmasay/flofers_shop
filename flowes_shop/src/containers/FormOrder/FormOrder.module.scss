@@ -2,10 +2,14 @@
 
 .container {
   max-width: $maxWidthContainer + px;
-  padding: 0px 15px 35% 15px;
+  height: 555px;
+  padding: 0px 15px;
   margin: 0 auto;
   position: relative;
   //padding-bottom: 35%;
+  @media (max-width: 530px) {
+    height: 640px;
+  }
 }
 
 .wrapperForm {
@@ -36,9 +40,16 @@
 }
 
 .row {
-  display: flex;
   width: 100%;
-  gap: 20px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(200px, 1fr));
+  grid-template-rows: 1fr;
+  column-gap: 20px;
+  @media (max-width: 530px) {
+    grid-template-columns: 1fr;
+    grid-row: 2;
+    row-gap: 20px;
+  }
 }
 
 .inputRow {
@@ -50,36 +61,58 @@
 }
 
 .input {
-  flex: 1 1 auto;
+  color: #0000008F;
   padding: 15px 12px;
   border: 1px solid #858585;
   background-color: $lightOliveColor;
+  font-size: 18px;
+  font-weight: 400;
   line-height: 22px;
-  text-align: left;
 
+  &.inputError {
+    border: 1px solid red;
+  }
 }
-.select{
-  font-style: inherit;
-  color: inherit;
-  flex: 0 0 208px;
+
+
+.select {
+  outline: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  margin: 0;
+  font-family: Noto Sans;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 22px;
+  letter-spacing: 0px;
+
+  color: #0000008F;
   padding: 15px 12px;
   border: 1px solid #858585;
   background-color: $lightOliveColor;
+  width: 100%;
 
-
-
+  &.inputError {
+    border: 1px solid red;
+  }
 }
-.startSelect{
+
+.startSelect {
   margin-bottom: 10px;
-  //position: relative;
-  //&:after{
-  //  content: '+';
-  //  position: absolute;
-  //  right: 0;
-  //
-  //}
 }
 
+.errorMessage{
+  padding: 15px;
+  div{
+    text-align: center;
+    color: red;
+    &:not(:last-child){
+      margin-bottom: 5px;
+    }
+  }
+}
 .button {
   background-color: #FFFFFFA1;
   padding: 20px 50px;
@@ -92,4 +125,5 @@
   height: 100%;
   top: 0;
   left: 0;
+  object-fit: cover;
 }

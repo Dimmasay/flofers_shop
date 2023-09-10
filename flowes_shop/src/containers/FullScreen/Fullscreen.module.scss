@@ -2,59 +2,79 @@
 
 .wrapper {
   position: relative;
-  z-index: 1;
   padding-top: 80px;
   height: 100vh;
   min-width: 100%;
+  overflow: hidden;
 }
 
 .images {
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  min-height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
+  @media (max-width: $mobile) {
+    grid-template-columns: repeat(1, minmax(150px, 1fr));
+  }
+
 
   img {
-    flex: 0 0 33.333%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    @media (max-width: $mobile) {
+      display: none;
+      &:first-child{
+        display: block;
+      }
+    }
+
   }
 }
 
+
 .container {
-  position: absolute;
-  bottom: 50px;
-  left: 50%;
-  transform: translate(-50%, 0px);
-  z-index: 10;
-  width: $maxWidthContainer + px;
+  height: 100%;
+  position: relative;
+  z-index: 5;
+  max-width: $maxWidthContainer + px;
   padding: 0px 15px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
 }
 
 .info {
-
+  padding-bottom: 50px;
 }
 
 .title {
   font-family: Century Gothic;
-  font-size: 48px;
-  line-height: 58px;
   color: white;
   margin-bottom: 16px;
+  @include adaptiveValue('font-size', 48, 27, 1);
+  @include adaptiveValue('line-height', 58, 32, 1);
 }
 
 .text {
   font-family: Noto Sans;
   font-weight: 700;
-  font-size: 16px;
   line-height: 20px;
   color: white;
   margin-bottom: 32px;
   max-width: 315px;
+  @include adaptiveValue('font-size', 16, 14, 1)
 }
 
 .buttons {
   display: flex;
-  gap: 23px;
   color: white;
+  @include adaptiveValue('column-gap', 23, 15, 1)
 }
 
 .button {
@@ -62,6 +82,7 @@
   padding: 12px 0px;
   background-color: $oliveColor;
   transition: all 0.3s ease 0s;
+
   &:hover {
     background-color: rgba(156, 148, 107, 0.56);
   }

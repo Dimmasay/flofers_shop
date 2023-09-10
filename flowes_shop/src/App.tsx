@@ -1,4 +1,3 @@
-import './App.scss'
 import {Header} from "./containers/Header/Header";
 import {HomePage} from "./pages/HomePage";
 import {ServicesPage} from "./pages/ServicesPage";

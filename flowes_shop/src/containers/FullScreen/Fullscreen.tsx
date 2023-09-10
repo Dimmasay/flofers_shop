@@ -13,16 +13,18 @@ export const FullScreen = (props) => {
                 <img src={fullImage2}/>
                 <img src={fullImage3}/>
             </div>
-            <div className={full.container}>
-                <div className={full.info}>
-                    <div className={full.title}>Букети на замовлення</div>
-                    <div className={full.text}>Створюємо композиції з живих квітів для Ваших особливих моментів.</div>
-                    <div className={full.buttons}>
-                        <ButtonOlive text={'Створити букет'}/>
-                        <ButtonOlive text={'Каталог'}/>
+                <div className={full.container}>
+                    <div className={full.info}>
+                        <div className={full.title}>Букети на замовлення</div>
+                        <div className={full.text}>Створюємо композиції з живих квітів для Ваших особливих моментів.
+                        </div>
+                        <div className={full.buttons}>
+                            <ButtonOlive text={'Створити букет'}/>
+                            <ButtonOlive text={'Каталог'}/>
+                        </div>
                     </div>
                 </div>
-            </div>
+
         </div>
     )
 }

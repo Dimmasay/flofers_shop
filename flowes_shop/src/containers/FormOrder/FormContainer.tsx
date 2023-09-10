@@ -10,9 +10,25 @@ import uk from 'date-fns/locale/uk';
 
 registerLocale('uk', uk);
 
+import * as Yup from 'yup';
+
 import "react-datepicker/dist/react-datepicker.css";
+import Preloader from "../../components/Prealoder/Preloader";
+
 
 export const FormContainer = () => {
+
+    let initialState = {
+        firstName: '',
+        phone: '',
+        bouquetsId: '',
+        date: ''
+    }
+
+    let [state, setState] = useState(initialState)
+    const [startDate, setStartDate] = useState<string>(null); // for DatePicker
+    let [inProcess, setProcess] = useState(false)
+
 
     let bouquetsList = bouquets.map(bouq => {
         return <option className={order.startSelect} key={bouq.id}
@@ -21,77 +37,95 @@ export const FormContainer = () => {
     bouquetsList.push(<option value="" disabled selected>Оберіть букет</option>)
 
 
-    let initialState = {
-        firstName: '',
-        phone: '',
-        bouquetsId: '',
-        data: ''
-    }
-    let [state, setState] = useState(initialState)
-    const [startDate, setStartDate] = useState(null);
+    const SignupSchema = Yup.object().shape({
+        firstName: Yup.string()
+            .min(2, 'Too Short!')
+            .max(15, 'Too Long!')
+            .required("Введіть ім'я"),
+        phone: Yup.string().required('Вкажіть номер'),
+        bouquetsId: Yup.string()
+            .required('Оберіть букет')
+        ,
+    });
 
-    let sendForm = (data) => {
 
+    let sendForm = (values, {resetForm}) => {
+        setProcess(true)
         let sentData = {
-            ...data,
-            data: state.data
+            ...values,
+            date: state.date
         }
-        alert(JSON.stringify(sentData, null, 2));
-
+        setTimeout(() => {
+                alert(JSON.stringify(sentData, null, 2))
+                resetForm()
+                setStartDate(null)
+                setProcess(false)
+            }, 500
+        )
     }
+
+
     useEffect(() => {
-            startDate !== null && setState({...state, data: startDate.toString()})
+            startDate !== null && setState({...state, date: startDate.toString()})
         },
         [startDate])
 
 
-    const Example = () => {
-        return (
-            <DatePicker
-                locale="uk"
-                className={`${order.select}`}
-                selected={startDate}
-                onChange={(date) => setStartDate(date)}
-                placeholderText="дд /мм /рр"
-            />
-        );
-    };
-
     return (
         <div className={order.container}>
             <Formik
+                validationSchema={SignupSchema}
                 initialValues={state}
                 onSubmit={sendForm}
             >
-                <div className={order.wrapperForm}>
-                    <div className={order.title}>Замовити букет</div>
-                    <Form className={order.form}>
-                        <div className={`${order.inputRow} ${order.row}`}>
-                            <Field className={`${order.input}`}
-                                   name="firstName"
-                                   placeholder="Ім'я"/>
-                            <Field className={`${order.input}`}
-                                   type='phone'
-                                   name="phone"
-                                   placeholder="+38(___) ___-__-__"/>
-                        </div>
-                        <div className={`${order.selectRow} ${order.row}`}>
-                            <Field
-                                className={`${order.select}`}
-                                name="bouquetsId"
-                                component="select">
-                                {bouquetsList}
-                            </Field>
-                            <Example/>
-                        </div>
-                        <button className={`${order.button}`} type="submit">Замовити</button>
-                    </Form>
-                </div>
+                {({errors, touched}) => (
+                    <div className={order.wrapperForm}>
+                        <div className={order.title}>Замовити букет</div>
+                        <Form className={order.form}>
+                            <div className={`${order.inputRow} ${order.row}`}>
+                                <Field
+                                    className={errors.firstName ? `${order.input} ${order.inputError}` : `${order.input}`}
+                                    name="firstName"
+                                    placeholder="Ім'я"/>
+                                <Field
+                                    className={errors.phone ? `${order.input} ${order.inputError}` : `${order.input}`}
+                                    type='phone'
+                                    name="phone"
+                                    placeholder="+38(___) ___-__-__"/>
 
+                            </div>
+                            <div className={`${order.selectRow} ${order.row}`}>
+                                <Field
+                                    className={errors.bouquetsId ? `${order.select} ${order.inputError}` : `${order.select}`}
+                                    name="bouquetsId"
+                                    id="bouquetsId"
+                                    component="select">
+                                    {bouquetsList}
+                                </Field>
+                                <DatePicker
+                                    locale="uk"
+                                    className={`${order.select}`}
+                                    selected={startDate}
+                                    onChange={(date) => setStartDate(date)}
+                                    dateFormat="dd/MM/yyyy/"
+                                    placeholderText="дд /мм /рр"
+                                    todayButton="Vandaag"
+                                />
+                            </div>
+                            <div className={order.errorMessage}>
+                                { errors.firstName && touched.firstName ?<div>{errors.firstName}</div> : null}
+                                { errors.phone && touched.phone ?<div>{errors.phone}</div> : null}
+                                { errors.bouquetsId && touched.bouquetsId ?<div>{errors.bouquetsId}</div> : null}
+                            </div>
+                            {inProcess ? <Preloader/> :
+                                <button className={`${order.button}`} type="submit">Замовити</button>}
+                        </Form>
+
+                    </div>
+                )}
             </Formik>
             <img className={`${order.orderImg}`} src={orderImg} alt='order'/>
         </div>
     )
 }
-
 

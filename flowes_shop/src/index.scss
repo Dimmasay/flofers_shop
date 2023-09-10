@@ -49,7 +49,7 @@ $containerWidth: $maxWidthContainer + $containerPadding;
 $pc: $containerWidth + px; // ПК, ноутбуки, деякі планшети у горизонтальному положенні
 $tablet: 992px; // Планшеты, некоторые телефоны в горизонтальном положении
 $mobile: 767px; // Телефоны L
-$mobileSmall: 480px; // Телефоны S
+$mobileSmall: 360px; // Телефоны S
 
 
 // Mixin ====================================================================================================
@@ -61,8 +61,16 @@ $mobileSmall: 480px; // Телефоны S
 
 // Основні стилі  =====================================================================
 body {
+  min-height: 100%;
   overflow-x: hidden;
   color: $mainColor;
+  &._lock{
+    overflow: hidden;
+  }
+}
+
+div#root{
+  min-height: 100%;
 }
 
 /*
@@ -78,4 +86,17 @@ body {
   //padding: 0px 15px;
   //margin: 0 auto;
 }
+
+
+
+//усі крім останнього
+//&:not(:last-child) {
+//    padding-right: 20px;
+//  }
+
+// @include adaptiveValue("property", 50, 20, 1);
+
+//@media (max-width: $mobile) {
+//            opacity: 0.2;
+//}
 
