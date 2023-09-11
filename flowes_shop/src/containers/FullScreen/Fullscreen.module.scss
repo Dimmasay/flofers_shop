@@ -73,17 +73,14 @@
 
 .buttons {
   display: flex;
+  @media (max-width: $mobile) {
+    flex-wrap: wrap;
+    row-gap: 15px;
+  }
   color: white;
-  @include adaptiveValue('column-gap', 23, 15, 1)
+  @include adaptiveValue('column-gap', 23, 15, 1);
+
 }
 
 .button {
-  width: 184px;
-  padding: 12px 0px;
-  background-color: $oliveColor;
-  transition: all 0.3s ease 0s;
-
-  &:hover {
-    background-color: rgba(156, 148, 107, 0.56);
-  }
 }
