@@ -1,4 +1,9 @@
+import {Services} from "../containers/Services/Services";
+import pages from "./Pages.module.scss";
+
 export const ServicesPage = (props) => {
-    return (<h1>Services</h1>)
+    return (<div className={`${pages.containerServicesPage} ${pages.container}`}>
+        <Services/>
+    </div>)
 }
 

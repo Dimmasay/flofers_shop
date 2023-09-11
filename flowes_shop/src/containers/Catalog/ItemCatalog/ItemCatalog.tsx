@@ -1,8 +1,14 @@
 import item from './ItemCatalog.module.scss'
 
-export const ItemCatalog = (props) => {
+type ItemCatalogProps = {
+    image: string,
+    name: string,
+    price: string
+}
+
+export const ItemCatalog = (props: ItemCatalogProps) => {
     return (
-        <div className={item.item} >
+        <div className={item.item}>
             <div className={item.image}>
                 <img src={props.image}/>
             </div>
@@ -10,7 +16,9 @@ export const ItemCatalog = (props) => {
                 <div className={item.name}>{`Букет «${props.name}»`}</div>
                 <div className={item.price}>{`${props.price} грн.`}</div>
             </div>
-            <button className={item.orderButton}>Додати в кошик</button>
+            <div className={item.btn}>
+                <button className={item.orderButton}>Додати в кошик</button>
+            </div>
         </div>
     )
 }

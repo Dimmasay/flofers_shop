@@ -13,6 +13,7 @@
 //=====
 .list {
   flex: 0 0 300px;
+
   @media (max-width: $tablet) {
     flex: 1 1 auto;
     display: flex;
@@ -80,5 +81,66 @@
   column-gap: 40px;
   @media (max-width: $tablet) {
     //grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+
+.header {
+  padding-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  @media (max-width: $tablet) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 3px solid black;
+    padding-top: 60px;
+    padding-bottom: 10px;
+  }
+}
+
+.title {
+  font-family: Century Gothic;
+  position: relative;
+  @include adaptiveValue('font-size', 50, 24, 1);
+  @include adaptiveValue('line-height', 60, 30, 1);
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 2px;
+    background-color: black;
+    @include adaptiveValue('width', 580, 80, 1);
+  }
+
+  @media (max-width: $tablet) {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+
+    &:after {
+      width: 0px;
+    }
+  }
+}
+
+.buttonHeader {
+  background-color: $oliveColor;
+  padding: 18px 32px;
+  font-family: Century Gothic;
+  line-height: 29px;
+  text-align: center;
+  color: white;
+  @include adaptiveValue('font-size', 24, 18, 1);
+
+  &:hover {
+    background-color: #9C946BB2;
+  }
+
+  @media (max-width: $tablet) {
+    margin-bottom: 25px;
   }
 }

@@ -1,33 +1,36 @@
-import create from './CreateBouquets.module.scss';
-import createImage from './../../assets/image/home/create.jpg'
-import {ButtonOlive} from "../../components/ButtonOlive/ButtonOlive";
+import create from './CreateBouquets.module.scss'
+import {flowers} from "../../assets/flowers";
+import {ItemFlower} from "./ItemFlower/ItemFlower";
+import banner from './../../assets/image/create/createBanner.jpg'
 
 export const CreateBouquets = (props) => {
+
+    let flowersList = flowers.map(el => {
+        return (
+            <ItemFlower image={el.image} name={el.name} sort={el.sort}/>
+        )
+    })
+
+
     return (
-        <div className={create.container}>
-            <div className={create.blockLeft}>
-                <div className={create.image}>
-                    <img src={createImage}/>
+        <div className={create.wrapper}>
+            <div className={create.banner}>
+                <img src={banner}/>
+                <div className={create.bannerText}>Моя Композиція</div>
+            </div>
+            <div className={create.content}>
+                <div className={create.menu}>
+                    <button className={create.title}>Додати в букет</button>
+                    <div className={create.buttons}>
+                        <button className={create.button}>Папір</button>
+                        <button className={create.button}>Квіти</button>
+                        <button className={create.button}>Додатково</button>
+                    </div>
+                </div>
+                <div className={create.list}>
+                    {flowersList}
                 </div>
             </div>
-            <div className={create.blockRight}>
-                <div className={create.info}>
-                    <div className={create.title}>
-                        Створення букетів на замовлення
-                    </div>
-                    <div className={create.text}>
-                        Команда наших професійних флористів створить букет за Вашим дизайном. Обирайте квіти і декоративні
-                        доповнення для Вашої композиції на нашому сайті або в шоурумі, додавайте в кошик і ми створимо Щось
-                        Особливе. Не обмежуйте свою фантазію, адже для нас немає нічого неможливого.
-                    </div>
-                    <button className={create.button}>Про нас</button>
-                </div>
-                <div className={create.buttonCreate}>
-                    <ButtonOlive text={'Створити букет'}/>
-                </div>
-            </div>
-
-
         </div>
     )
 }

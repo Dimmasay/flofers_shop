@@ -19,12 +19,11 @@ export const FullScreen = (props) => {
                         <div className={full.text}>Створюємо композиції з живих квітів для Ваших особливих моментів.
                         </div>
                         <div className={full.buttons}>
-                            <ButtonOlive text={'Створити букет'}/>
-                            <ButtonOlive text={'Каталог'}/>
+                            <ButtonOlive text={'Створити букет'} to={'/services/create-bouquets'}/>
+                            <ButtonOlive text={'Каталог'} to={'/catalog'}/>
                         </div>
                     </div>
                 </div>
-
         </div>
     )
 }

@@ -1,0 +1,78 @@
+@import "./../../index.scss";
+
+.wrapper {
+  padding-top: 80px;
+  display: flex;
+  @media (max-width: $mobile) {
+    flex-direction: column;
+  }
+}
+
+.banner {
+  flex: 0 0 percent(686, 1200);
+  position: relative;
+  min-height: 100%;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  @media (max-width: $mobile) {
+    flex: 0 0 200px;
+  }
+}
+
+.content {
+  flex: 1 1 auto;
+  //padding-top: 105px;
+  //padding-bottom: 84px;
+  //padding-left: 36px;
+  @include adaptiveValue('padding-top', 105, 30, 1);
+  @include adaptiveValue('padding-bottom', 84, 20, 1);
+  @include adaptiveValue('padding-left', 36, 0, 1);
+}
+
+.info {
+}
+
+.item {
+  font-family: Century Gothic;
+  text-align: left;
+  max-width: 400px;
+
+  &:not(last-child) {
+    margin-bottom: 43px;
+  }
+
+  @media (max-width: $mobile) {
+    max-width: none;
+  }
+}
+
+.title {
+  line-height: 31px;
+  border-bottom: 2px solid #000000;
+  padding-bottom: 5px;
+  @include adaptiveValue('font-size', 26, 20, 1);
+}
+
+.text {
+  padding-top: 24px;
+  font-size: 14px;
+  line-height: 17px;
+
+
+}
+
+.buttons {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 15px;
+  color: white;
+  @include adaptiveValue('column-gap', 23, 15, 1);
+}

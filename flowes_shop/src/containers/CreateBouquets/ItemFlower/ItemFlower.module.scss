@@ -1,0 +1,72 @@
+.item {
+  display: flex;
+  flex-direction: column;
+  &:hover {
+    .image {
+      transform: scale(1.01);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+
+    //.btn{
+    //  padding-left: 30px;
+    //}
+  }
+}
+
+.image {
+  position: relative;
+  padding-bottom: 100%;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+.name {
+  font-family: Century Gothic;
+  font-size: 20px;
+  line-height: 24px;
+  text-align: left;
+  padding: 23px 0px;
+}
+
+.menu {
+  border-bottom: 1px solid #000000;
+  border-top: 1px solid #000000;
+  padding: 18px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.button {
+  width: 26px;
+  height: 26px;
+  background-color: #E6E4DA;
+
+}
+
+.sorts {
+  padding: 0px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.sort {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  overflow: hidden;
+  transition: all 0.3s ease 0s;
+  &.sortSelect{
+      transform: scale(1.3);
+  }
+}

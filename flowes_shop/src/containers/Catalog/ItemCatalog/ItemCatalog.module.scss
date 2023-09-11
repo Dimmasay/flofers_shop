@@ -8,8 +8,8 @@
       overflow: hidden;
     }
 
-    .orderButton {
-      font-size: 15px;
+    .btn{
+      padding-left: 30px;
     }
   }
 
@@ -39,7 +39,7 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 28px;
+  margin-bottom: 10px;
 
 }
 
@@ -55,11 +55,15 @@
   line-height: 18px;
 }
 
+
+.btn{
+
+}
 .orderButton {
   font-family: Century Gothic;
   font-size: 13px;
   font-weight: 400;
-  text-align: left;
+  text-align: center;
   transition: all 0.3s ease 0s;
 
   &:hover {
