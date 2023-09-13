@@ -64,7 +64,7 @@ export const Header = (props) => {
                         </li>
                         <li className={header.item}>
                             <NavLink
-                                to={'/discounts'}
+                                to={'/'}
                                 className={header.link}
                                 onClick={() => setActive(false)}
                             >Акції</NavLink>

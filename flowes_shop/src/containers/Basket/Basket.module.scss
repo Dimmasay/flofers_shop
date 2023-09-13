@@ -1,0 +1,77 @@
+@import "./../../index.scss";
+
+
+.wrapper {
+  padding-top: 40px;
+  padding-bottom: 125px;
+}
+
+.titleBig {
+  position: relative;
+  font-family: Century Gothic;
+  font-weight: 400;
+  @include adaptiveValue('font-size', 50, 24, 1);
+  @include adaptiveValue('line-height', 60, 28, 1);
+  @include adaptiveValue('margin-bottom', 106, 30, 1);
+
+  &:after {
+    position: absolute;
+    content: '';
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: black;
+
+    @include adaptiveValue('width', 585, 200, 1);
+  }
+}
+
+.products {
+  margin-bottom: 110px;
+}
+
+
+.resul {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 44px;
+  border-bottom: 1px solid black;
+}
+
+.resulTitle {
+  font-family: Century Gothic;
+  font-size: 16px;
+  line-height: 19px;
+
+}
+
+.resulSum {
+  font-family: Century Gothic;
+  font-weight: 700;
+  line-height: 19px;
+
+}
+
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  gap: 110px;
+}
+
+.button {
+  background-color: $oliveColor;
+  padding: 12px 58px;
+  font-family: Century Gothic;
+  font-size: 16px;
+  line-height: 24px;
+  color: white;
+  transition: all 0.3s ease 0s;
+
+  &:hover {
+    background-color: #9C946B45;
+    color: black;
+  }
+}

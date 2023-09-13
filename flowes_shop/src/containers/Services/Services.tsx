@@ -38,7 +38,7 @@ export const Services = (props) => {
                 </div>
                 <div className={services.buttons}>
                         <ButtonOlive text={'Каталог'} to={'/catalog'}/>
-                        <ButtonOlive text={'Створити букет'} to={'/'}/>
+                        <ButtonOlive text={'Створити букет'} to={'/services/create-bouquets'}/>
                 </div>
             </div>
         </div>

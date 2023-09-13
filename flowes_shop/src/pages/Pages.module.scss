@@ -15,3 +15,8 @@
 
 .containerServicesPage {
 }
+
+.containerBasketPage {
+  padding-top: 80px;
+  //@include adaptiveValue('padding-top', 80, 40, 1);
+}

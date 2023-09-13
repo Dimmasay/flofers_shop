@@ -1,0 +1,114 @@
+.itemsRow {
+  display: flex;
+  align-items: start;
+  justify-content: space-between;
+  &:not(:last-child) {
+    margin-bottom: 59px;
+  }
+}
+
+.column {
+  height: 120px;
+  flex: 0 1 147px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.info {
+  padding-top: 15px;
+  height: 100%;
+  flex: 0 0 207px;
+}
+
+.image {
+  width: 207px;
+  height: 203px;
+  position: relative;
+  background-color: #9C946B;
+  margin-bottom: 11px;
+
+  img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+  }
+}
+
+.name {
+  font-family: Noto Sans;
+  font-size: 13px;
+  line-height: 16px;
+
+}
+
+.addArticle {
+}
+
+.title {
+  font-family: Century Gothic;
+  font-weight: 400;
+  line-height: 19px;
+  text-align: center;
+
+}
+
+.addArticleInput {
+  width: 38px;
+  height: 38px;
+  border: 1px solid black;
+}
+
+.quantity {
+}
+
+.quantityForm {
+  max-width: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.quantityButton {
+}
+
+.quantityInput {
+  padding: 3px 5px;
+  width: 40px;
+  text-align: center;
+  border: 1px solid rgba(0, 0, 0, 0.32);
+}
+
+.reset {
+}
+
+.resetButton {
+  width: 26px;
+  height: 26px;
+  position: relative;
+
+  img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
+.sum {
+}
+
+.sumValue {
+  font-family: Century Gothic;
+  font-weight: 700;
+  line-height: 19px;
+
+}
