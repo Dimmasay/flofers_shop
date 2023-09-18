@@ -5,7 +5,7 @@ import fullImage3 from './../../assets/image/home/fullscreen/3.jpg'
 import full from './Fullscreen.module.scss'
 import {ButtonOlive} from "../../components/ButtonOlive/ButtonOlive";
 
-export const FullScreen = (props) => {
+export const FullScreen = () => {
     return (
         <div className={full.wrapper}>
             <div className={full.images}>
@@ -19,8 +19,8 @@ export const FullScreen = (props) => {
                         <div className={full.text}>Створюємо композиції з живих квітів для Ваших особливих моментів.
                         </div>
                         <div className={full.buttons}>
-                            <ButtonOlive text={'Створити букет'} to={'/services/create-bouquets'}/>
-                            <ButtonOlive text={'Каталог'} to={'/catalog'}/>
+                            <ButtonOlive text={'Створити букет'} to={'/flowers_shop/services/create-bouquets'}/>
+                            <ButtonOlive text={'Каталог'} to={'/flowers_shop/catalog'}/>
                         </div>
                     </div>
                 </div>

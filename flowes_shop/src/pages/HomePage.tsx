@@ -5,7 +5,7 @@ import {FormContainer} from "../containers/FormOrder/FormContainer";
 import {Contacts} from "../components/Contacts/Contacts";
 import pages from './Pages.module.scss'
 
-export const HomePage = (props) => {
+export const HomePage = () => {
     return (<div className={`${pages.containerHomepage}`}>
             <FullScreen/>
             <OurFavorites/>

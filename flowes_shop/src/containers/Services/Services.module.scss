@@ -1,7 +1,6 @@
 @import "./../../index.scss";
 
 .wrapper {
-  padding-top: 80px;
   display: flex;
   @media (max-width: $mobile) {
     flex-direction: column;
@@ -29,9 +28,6 @@
 
 .content {
   flex: 1 1 auto;
-  //padding-top: 105px;
-  //padding-bottom: 84px;
-  //padding-left: 36px;
   @include adaptiveValue('padding-top', 105, 30, 1);
   @include adaptiveValue('padding-bottom', 84, 20, 1);
   @include adaptiveValue('padding-left', 36, 0, 1);

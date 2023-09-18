@@ -1,7 +1,14 @@
-import {bouquetType} from "../../assets/bouquets";
+
 import item from './FavoriteItem.module.scss'
 
-export const FavoriteItem = (props: bouquetType) => {
+type FavoriteItemType = {
+    id: number,
+    image: string,
+    name: string
+    price: number
+}
+
+export const FavoriteItem = (props: FavoriteItemType) => {
     return (
         <div className={item.item} key={props.id}>
             <div className={item.image}>

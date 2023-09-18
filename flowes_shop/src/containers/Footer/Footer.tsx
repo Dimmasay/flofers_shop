@@ -6,7 +6,7 @@ import whatsapp from './../../assets/image/icons/whatsapp.png'
 import {NavLink} from "react-router-dom";
 
 
-export const Footer = (props) => {
+export const Footer = () => {
     return (
         <div className={footer.wrapper}>
             <div className={footer.container}>

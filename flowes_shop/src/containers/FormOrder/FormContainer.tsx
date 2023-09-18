@@ -18,7 +18,14 @@ import Preloader from "../../components/Prealoder/Preloader";
 
 export const FormContainer = () => {
 
-    let initialState = {
+    type initialStateType = {
+        firstName: string,
+        phone: string,
+        bouquetsId: string,
+        date: string
+    }
+
+    let initialState: initialStateType = {
         firstName: '',
         phone: '',
         bouquetsId: '',
@@ -26,13 +33,13 @@ export const FormContainer = () => {
     }
 
     let [state, setState] = useState(initialState)
-    const [startDate, setStartDate] = useState<string>(null); // for DatePicker
+    const [startDate, setStartDate] = useState<any>(''); // for DatePicker
     let [inProcess, setProcess] = useState(false)
 
 
-    let bouquetsList = bouquets.map(bouq => {
-        return <option className={order.startSelect} key={bouq.id}
-                       value={bouq.id}>{`${bouq.name} - ${bouq.price}грн.`}</option>
+    let bouquetsList = bouquets.map(bouquet => {
+        return <option className={order.startSelect} key={bouquet.id}
+                       value={bouquet.id}>{`${bouquet.name} - ${bouquet.price}грн.`}</option>
     })
     bouquetsList.push(<option value="" disabled selected>Оберіть букет</option>)
 
@@ -49,12 +56,13 @@ export const FormContainer = () => {
     });
 
 
-    let sendForm = (values, {resetForm}) => {
+    let sendForm = (values: initialStateType, {resetForm}: any) => {
         setProcess(true)
         let sentData = {
             ...values,
             date: state.date
         }
+
         setTimeout(() => {
                 alert(JSON.stringify(sentData, null, 2))
                 resetForm()
@@ -106,7 +114,7 @@ export const FormContainer = () => {
                                     locale="uk"
                                     className={`${order.select}`}
                                     selected={startDate}
-                                    onChange={(date) => setStartDate(date)}
+                                    onChange={(date: Date | null) => setStartDate(date)}
                                     dateFormat="dd/MM/yyyy/"
                                     placeholderText="дд /мм /рр"
                                     todayButton="Vandaag"

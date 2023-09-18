@@ -1,20 +1,32 @@
 import bas from './Basket.module.scss'
 import {ItemBasket} from "./ItemBasket/ItemBasket";
-import {useContext} from "react";
-import {basketType, SetStateContext, StateContext} from "../../App";
+import {useContext, useState} from "react";
+import {BasketContextType, BasketReducerContext} from "../../reducer";
+import {NavLink} from "react-router-dom";
 
 
 export const Basket = () => {
 
-    let basket = useContext(StateContext)
+    let {basketState, setResetBasket} = useContext(BasketReducerContext) as BasketContextType
 
-    let itemsBasket = basket.map((el: basketType) => {
+    let [inProcess, setProcess] = useState(false)
+
+    let itemsBasket = basketState.basket.map((el) => {
+
         return (
-            <ItemBasket name={el.name} id={el.id} price={el.price} image={el.image} quantity={el.quantity}
+            <ItemBasket key={el.id} name={el.name} id={el.id} price={el.price} image={el.image} quantity={el.quantity}
                         addArticle={el.addArticle} sum={el.sum}/>
         )
     })
+    let toOrder = () => {
+        setProcess(true)
+        setTimeout(() => {
+            alert(JSON.stringify(basketState, null, 2))
+            setResetBasket()
+            setProcess(false)
+        }, 2000)
 
+    }
 
     return (
         <div className={bas.wrapper}>
@@ -23,12 +35,16 @@ export const Basket = () => {
                 {itemsBasket}
             </div>
             <div className={bas.resul}>
-                <div className={bas.resulTitle}>Всього:</div>
-                <div className={bas.resulSum}></div>
+                <div className={bas.resulEnd}>
+                    <div className={bas.resulTitle}>Всього:</div>
+                    <div className={bas.resulSum}>{basketState.resultSum} грн.</div>
+                </div>
             </div>
             <div className={bas.buttons}>
-                <button className={bas.button}>Продовжити покупки</button>
-                <button className={bas.button}>Оформити замовлення</button>
+                <NavLink to={'/'} className={bas.button}>Продовжити покупки</NavLink>
+                <button className={bas.button} onClick={toOrder}
+                        disabled={!basketState.quantityAll || inProcess}>Оформити замовлення
+                </button>
             </div>
         </div>
     )

@@ -1,10 +1,11 @@
 import create from './Create.module.scss'
 import createImage from './../../assets/image/home/create.jpg'
 import {ButtonOlive} from "../../components/ButtonOlive/ButtonOlive";
+import {NavLink} from "react-router-dom";
 
-export const Create = (props) => {
+export const Create = () => {
     return (
-        <div className={create.container}>
+        <div className={create.wrapper}>
             <div className={create.blockLeft}>
                 <div className={create.image}>
                     <img src={createImage}/>
@@ -20,14 +21,12 @@ export const Create = (props) => {
                         доповнення для Вашої композиції на нашому сайті або в шоурумі, додавайте в кошик і ми створимо Щось
                         Особливе. Не обмежуйте свою фантазію, адже для нас немає нічого неможливого.
                     </div>
-                    <button className={create.button}>Про нас</button>
+                    <NavLink to={'/flowers_shop/services'} className={create.button}>Про нас</NavLink>
                 </div>
                 <div className={create.buttonCreate}>
-                    <ButtonOlive text={'Створити букет'}/>
+                    <ButtonOlive text={'Створити букет'} to={'/flowers_shop/services/create-bouquets'}/>
                 </div>
             </div>
-
-
         </div>
     )
 }

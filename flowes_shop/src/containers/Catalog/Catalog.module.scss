@@ -1,88 +1,9 @@
 @import "./../../index.scss";
 
-.containerCatalog {
-  display: flex;
-  padding-top: 83px;
-  @media (max-width: $tablet) {
-    padding-top: 0px;
-    flex-direction: column;
-  }
-
+.wrapper{
+  min-width: 100%;
 }
 
-//=====
-.list {
-  flex: 0 0 300px;
-
-  @media (max-width: $tablet) {
-    flex: 1 1 auto;
-    display: flex;
-    padding: 15px 10px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: center;
-  }
-}
-
-.item {
-}
-
-.button {
-  font-family: Century Gothic;
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 24px;
-  text-align: left;
-  border-bottom: 2px solid white;
-  transition: all 0.3s ease 0s;
-
-  &:not(:last-child) {
-    margin-bottom: 15px;
-  }
-
-  &:hover {
-    border-bottom: 2px solid #000000;
-  }
-
-  @media (max-width: $tablet) {
-    flex: 1 1 auto;
-    display: flex;
-    padding: 10px 20px;
-    &:not(last-child) {
-      margin-bottom: 0px;
-    }
-
-  }
-
-}
-
-.buttonBig {
-  font-size: 26px;
-  line-height: 31px;
-  border-bottom: 2px solid #000000;
-  margin-bottom: 27px;
-  @media (max-width: $tablet) {
-    margin-bottom: 0px;
-    font-family: Century Gothic;
-    font-size: 20px;
-    line-height: 24px;
-    border-bottom: none;
-  }
-}
-
-//======
-
-
-.products {
-  flex: 1 1 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  row-gap: 30px;
-  column-gap: 40px;
-  @media (max-width: $tablet) {
-    //grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  }
-}
 
 
 .header {
@@ -144,3 +65,91 @@
     margin-bottom: 25px;
   }
 }
+
+
+.containerCatalog {
+  min-width: 100%;
+  display: flex;
+  padding-top: 83px;
+  @media (max-width: $tablet) {
+    padding-top: 0px;
+    flex-direction: column;
+  }
+
+}
+
+
+.list {
+  flex: 0 0 300px;
+
+  @media (max-width: $tablet) {
+    flex: 1 1 auto;
+    display: flex;
+    padding: 15px 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.item {
+}
+
+.button {
+  font-family: Century Gothic;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  border-bottom: 2px solid white;
+  transition: all 0.3s ease 0s;
+
+  &:not(last-child) {
+    margin-bottom: 15px;
+  }
+
+  &:hover {
+    border-bottom: 2px solid #000000;
+  }
+
+  @media (max-width: $tablet) {
+    flex: 1 1 auto;
+    display: flex;
+    padding: 10px 20px;
+    &:not(last-child) {
+      margin-bottom: 0px;
+    }
+
+  }
+
+}
+
+.buttonBig {
+  font-size: 26px;
+  line-height: 31px;
+  border-bottom: 2px solid #000000;
+  margin-bottom: 27px;
+  @media (max-width: $tablet) {
+    margin-bottom: 0px;
+    font-family: Century Gothic;
+    font-size: 20px;
+    line-height: 24px;
+    border-bottom: none;
+  }
+}
+
+//======
+
+
+.products {
+  flex: 1 1 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  row-gap: 20px;
+  column-gap: 40px;
+  @media (max-width: $tablet) {
+    //grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+

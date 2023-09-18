@@ -3,7 +3,7 @@ import {flowers} from "../../assets/flowers";
 import {ItemFlower} from "./ItemFlower/ItemFlower";
 import banner from './../../assets/image/create/createBanner.jpg'
 
-export const CreateBouquets = (props) => {
+export const CreateBouquets = () => {
 
     let flowersList = flowers.map(el => {
         return (

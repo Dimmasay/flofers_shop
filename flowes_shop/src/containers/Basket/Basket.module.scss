@@ -4,6 +4,7 @@
 .wrapper {
   padding-top: 40px;
   padding-bottom: 125px;
+
 }
 
 .titleBig {
@@ -35,10 +36,16 @@
   display: flex;
   align-items: center;
   justify-content: end;
+  margin-bottom: 54px;
+}
+
+.resulEnd{
+  display: flex;
+  align-items: center;
+  justify-content: end;
   gap: 44px;
   border-bottom: 1px solid black;
 }
-
 .resulTitle {
   font-family: Century Gothic;
   font-size: 16px;
@@ -59,9 +66,14 @@
   align-items: center;
   justify-content: end;
   gap: 110px;
+  @media (max-width: 600px) {
+    flex-direction: column;
+    gap: 20px;
+  }
 }
 
 .button {
+
   background-color: $oliveColor;
   padding: 12px 58px;
   font-family: Century Gothic;
@@ -73,5 +85,12 @@
   &:hover {
     background-color: #9C946B45;
     color: black;
+  }
+  @media (max-width: 600px) {
+    width: 100%;
+  }
+  &:disabled{
+    background-color: #9C946B45;
+    color: rgba(0, 0, 0, 0.44);
   }
 }

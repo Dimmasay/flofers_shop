@@ -5,7 +5,7 @@ import phone from './../../assets/image/icons/phone.svg'
 
 export const Contacts = () => {
     return (
-        <div className={contacts.container}>
+        <div className={contacts.wrapper}>
                 <ul className={contacts.list}>
                     <li className={contacts.item}>
                         <div className={contacts.image}>

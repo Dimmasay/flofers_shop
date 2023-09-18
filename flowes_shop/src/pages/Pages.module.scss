@@ -1,22 +1,26 @@
 @import "./../index.scss";
 
 .container {
-  min-height: 100%;
   max-width: $maxWidthContainer + px;
   margin: 0 auto;
   padding-right: 15px;
   padding-left: 15px;
+  width: 100%;
+  flex: 1 1 auto;
 }
 
+.containerHomepage{
+
+}
 .containerCatalogPage {
   @include adaptiveValue('padding-top', 80, 40, 1);
   @include adaptiveValue('padding-bottom', 58, 30, 1);
 }
 
 .containerServicesPage {
+  padding-top: 80px;
 }
 
 .containerBasketPage {
   padding-top: 80px;
-  //@include adaptiveValue('padding-top', 80, 40, 1);
 }

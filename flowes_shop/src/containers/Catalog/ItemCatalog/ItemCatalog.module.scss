@@ -1,5 +1,7 @@
 .item {
+  padding-bottom: 10px;
   transition: all 0.3s ease 0s;
+  overflow: hidden;
 
   &:hover {
     .image {
@@ -8,8 +10,8 @@
       overflow: hidden;
     }
 
-    .btn{
-      padding-left: 30px;
+    .btn {
+      padding-left: 5px;
     }
   }
 
@@ -17,6 +19,7 @@
 }
 
 .image {
+
   position: relative;
   width: 100%;
   padding-bottom: 100%;
@@ -44,6 +47,7 @@
 }
 
 .name {
+
   font-family: "Noto Sans";
   font-size: 20px;
   line-height: 24px;
@@ -53,12 +57,15 @@
   font-family: "Century Gothic";
   font-size: 15px;
   line-height: 18px;
-}
-
-
-.btn{
 
 }
+
+
+.btn {
+
+  padding-left: 2px;
+}
+
 .orderButton {
   font-family: Century Gothic;
   font-size: 13px;

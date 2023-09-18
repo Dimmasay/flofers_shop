@@ -1,17 +1,17 @@
 import catalog from './Catalog.module.scss'
-import {bouquets, bouquetType, sortNames} from "../../assets/bouquets";
+import {bouquets, bouquetType} from "../../assets/bouquets";
 import {useState} from "react";
 import {ItemCatalog} from "./ItemCatalog/ItemCatalog";
 import {NavLink} from "react-router-dom";
 
-export const Catalog = (props) => {
+export const Catalog = () => {
 
-    let initialState = bouquets
+    let bouquetsList = bouquets
 
-    let [state, setState] = useState<bouquetType[]>(initialState)
+    let [state, setState] = useState<bouquetType[]>(bouquetsList)
 
     const filterItems = (param: string) => {
-        let result = initialState
+        let result = bouquetsList
             .filter((item) => item.sortList.includes(param))
         setState(result)
     }
@@ -21,10 +21,10 @@ export const Catalog = (props) => {
 
 
     return (
-        <div>
+        <div className={catalog.wrapper}>
             <div className={catalog.header}>
                 <div className={catalog.title}>Каталог</div>
-                <NavLink to='./' className={catalog.buttonHeader}>Створити свій букет</NavLink>
+                <NavLink to={'/flowers_shop/services/create-bouquets'} className={catalog.buttonHeader}>Створити свій букет</NavLink>
             </div>
             <div className={catalog.containerCatalog}>
                 <ul className={catalog.list}>

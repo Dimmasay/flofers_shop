@@ -1,5 +1,4 @@
 import item from './ItemFlower.module.scss'
-import {useState} from "react";
 
 type SortItemFlowerType = {
     id?: number,
@@ -13,12 +12,9 @@ type ItemFlowerType = {
 }
 
 export const ItemFlower = (props: ItemFlowerType) => {
-    let [state, setState] = useState(false)
-
-
     let sorts = props.sort.map(el => {
         return (
-            <div className={state ?`${item.sort} ${item.sortSelect}` :`${item.sort}`} style={{backgroundColor: `${el.color}`}}></div>
+            <div className={item.sort} style={{backgroundColor: `${el.color}`}}></div>
         )
     })
 

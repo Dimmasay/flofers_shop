@@ -1,14 +1,15 @@
 @import "./../../index.scss";
 
 
-.container {
+.wrapper {
   max-width: $maxWidthContainer + px;
-  padding-top: 0;
-  padding-bottom: 0;
+  padding-top: 42px;
+  padding-bottom: 42px;
   margin: 0 auto;
   @include adaptiveValue('padding-right', 65, 15, 1);
   @include adaptiveValue('padding-left', 65, 15, 1);
-  @include adaptiveValue('margin-bottom', 42, 20, 1);
+  @include adaptiveValue('padding-padding-top', 42, 15, 1);
+  @include adaptiveValue('padding-padding-bottom', 42, 15, 1);
 }
 
 

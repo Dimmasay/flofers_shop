@@ -2,7 +2,7 @@ import services from './Services.module.scss'
 import banner from './../../assets/image/services/servicesBanner.jpg'
 import {ButtonOlive} from "../../components/ButtonOlive/ButtonOlive";
 
-export const Services = (props) => {
+export const Services = () => {
     return (
         <div className={services.wrapper}>
             <div className={services.banner}>
@@ -37,8 +37,8 @@ export const Services = (props) => {
                     </div>
                 </div>
                 <div className={services.buttons}>
-                        <ButtonOlive text={'Каталог'} to={'/catalog'}/>
-                        <ButtonOlive text={'Створити букет'} to={'/services/create-bouquets'}/>
+                        <ButtonOlive text={'Каталог'} to={'/flowers_shop/catalog'}/>
+                        <ButtonOlive text={'Створити букет'} to={'/flowers_shop/services/create-bouquets'}/>
                 </div>
             </div>
         </div>

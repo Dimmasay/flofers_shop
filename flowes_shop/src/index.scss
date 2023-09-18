@@ -64,29 +64,33 @@ body {
   min-height: 100%;
   overflow-x: hidden;
   color: $mainColor;
-  &._lock{
+
+  &._lock {
     overflow: hidden;
   }
 }
 
-div#root{
+
+div#root {
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /*
 (i) Стилі будуть застосовуватись до
 всіх класів, що містять *__container
-Наприклад header__container, main__container і т.п.
-
 */
 
-[class*="container"] {
+//[class*="_container"] {
+
+
+
   //overflow: hidden;
   //max-width: $maxWidthContainer + px;
   //padding: 0px 15px;
   //margin: 0 auto;
-}
-
+//}
 
 
 //усі крім останнього
