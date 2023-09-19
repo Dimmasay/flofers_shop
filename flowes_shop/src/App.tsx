@@ -5,10 +5,10 @@ import {Route, Routes} from "react-router-dom";
 import {CatalogPage} from "./pages/CatalogPage";
 import {BasketPage} from "./pages/BasketPage";
 
-import {Footer} from "./containers/Footer/Footer";
+import {Footer} from "./blocks/Footer/Footer";
 import {CreateBouquets} from "./containers/CreateBouquets/CreateBouquets";
 
-import {BasketReducer} from "./reducer";
+import {BasketReducer} from "./reducers/BasketReducer";
 
 function App() {
 //ts-ignore
@@ -16,11 +16,11 @@ function App() {
         <BasketReducer>
             <Header/>
             <Routes>
-                <Route path='/flowers_shop' element={<HomePage/>}/>
-                <Route path='/flowers_shop/services' element={<ServicesPage/>}/>
-                <Route path='/flowers_shop/services/create-bouquets' element={<CreateBouquets/>}/>
-                <Route path='/flowers_shop/catalog' element={<CatalogPage/>}/>
-                <Route path='/flowers_shop/basket' element={<BasketPage/>}/>
+                <Route path='/' element={<HomePage/>}/>
+                <Route path='/services' element={<ServicesPage/>}/>
+                <Route path='/services/create-bouquets' element={<CreateBouquets/>}/>
+                <Route path='/catalog' element={<CatalogPage/>}/>
+                <Route path='/basket' element={<BasketPage/>}/>
             </Routes>
             <Footer/>
         </BasketReducer>

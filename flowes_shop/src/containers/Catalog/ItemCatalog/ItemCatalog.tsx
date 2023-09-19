@@ -1,6 +1,6 @@
 import item from './ItemCatalog.module.scss'
 import React, {useContext} from "react";
-import {BasketContextType, BasketReducerContext} from "../../../reducer";
+import {BasketContextType, BasketReducerContext} from "../../../reducers/BasketReducer";
 
 type ItemCatalogProps = {
     image: string,

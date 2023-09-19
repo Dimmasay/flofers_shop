@@ -1,6 +1,6 @@
 import our from './OurFavorites.module.scss'
 import {bouquets, bouquetType, favoritesNames} from "../../assets/bouquets";
-import {FavoriteItem} from "../../components/FavoriteItem/FavoriteItem";
+import {FavoriteItem} from "./FavoriteItem/FavoriteItem";
 
 export const OurFavorites = () => {
 

@@ -1,6 +1,7 @@
 import services from './Services.module.scss'
-import banner from './../../assets/image/services/servicesBanner.jpg'
+import banner from '../../assets/image/services/servicesBanner.jpg'
 import {ButtonOlive} from "../../components/ButtonOlive/ButtonOlive";
+
 
 export const Services = () => {
     return (
@@ -37,8 +38,8 @@ export const Services = () => {
                     </div>
                 </div>
                 <div className={services.buttons}>
-                        <ButtonOlive text={'Каталог'} to={'/flowers_shop/catalog'}/>
-                        <ButtonOlive text={'Створити букет'} to={'/flowers_shop/services/create-bouquets'}/>
+                        <ButtonOlive text={'Каталог'} to={'/catalog'}/>
+                        <ButtonOlive text={'Створити букет'} to={'/services/create-bouquets'}/>
                 </div>
             </div>
         </div>

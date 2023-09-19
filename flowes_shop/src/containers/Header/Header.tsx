@@ -1,9 +1,9 @@
 import {Link as NavLink} from "react-router-dom";
 import header from './header.module.scss'
-import FlowerLogo from '../../assets/image/FLowerLogo.png'
+import FlowerLogo from '../../assets/image/FLowerLogo.svg'
 import basket from './../../assets/image/icons/basket.svg'
 import {useContext, useEffect, useState} from "react";
-import {BasketContextType, BasketReducerContext} from "../../reducer";
+import {BasketContextType, BasketReducerContext} from "../../reducers/BasketReducer";
 
 
 export const Header = () => {
@@ -13,8 +13,7 @@ export const Header = () => {
 
     let toggleActive = () => {
         if (isActive) {
-            setActive(false)
-            document.body.classList.remove('_lock')
+            closeMenuRemoveLockBody()
         } else {
             setActive(true)
             document.body.classList.add('_lock')
@@ -24,10 +23,14 @@ export const Header = () => {
     let autoCloseMenu = (e: DocumentEventMap["click"]) => {
         if (e.target instanceof HTMLDivElement) {
             if (!e.target.closest(`.${header.iconMenu}`)) {
-                setActive(false)
-                document.body.classList.remove('_lock')
+                closeMenuRemoveLockBody()
             }
         }
+    }
+
+    let closeMenuRemoveLockBody = () => {
+        setActive(false)
+        document.body.classList.remove('_lock')
     }
 
     useEffect(() => {
@@ -41,45 +44,45 @@ export const Header = () => {
     return (
         <div className={header.wrapper}>
             <div className={header.container}>
-                <NavLink to={'/flowers_shop'} className={header.logo}>
+                <NavLink to={'/'} className={header.logo}>
                     <img src={FlowerLogo}/>
                 </NavLink>
                 <nav>
                     <ul className={isActive ? `${header.list} ${header._isActive}` : `${header.list}`}>
                         <li className={header.item}>
                             <NavLink
-                                to={'/flowers_shop'}
+                                to={'/'}
                                 className={header.link}
-                                onClick={() => setActive(false)}
+                                onClick={closeMenuRemoveLockBody}
                             >Головна</NavLink>
                         </li>
                         <li className={header.item}>
                             <NavLink
-                                to={'/flowers_shop/catalog'}
+                                to={'/catalog'}
                                 className={header.link}
-                                onClick={() => setActive(false)}
+                                onClick={closeMenuRemoveLockBody}
                             >Каталог</NavLink>
                         </li>
                         <li className={header.item}>
                             <NavLink
-                                to={'/flowers_shop/services'}
+                                to={'/services'}
                                 className={header.link}
-                                onClick={() => setActive(false)}
+                                onClick={closeMenuRemoveLockBody}
                             >Послуги</NavLink>
                         </li>
                         <li className={header.item}>
                             <NavLink
-                                to={'/flowers_shop'}
+                                to={'/'}
                                 className={header.link}
-                                onClick={() => setActive(false)}
+                                onClick={closeMenuRemoveLockBody}
                             >Акції</NavLink>
                         </li>
                         <li className={header.item}>
                             <NavLink
-                                to={'/flowers_shop/basket'}
+                                to={'/basket'}
                                 className={header.link}
-                                onClick={() => setActive(false)}
-                            >Кошик <span>{basketState.quantityAll ? `(${basketState.quantityAll})` : null}</span>
+                                onClick={closeMenuRemoveLockBody}
+                            >Кошик <span>{basketState.quantityAll ? `(${basketState.quantityAll})` : '(0)'}</span>
                             </NavLink>
                         </li>
                     </ul>
@@ -88,9 +91,9 @@ export const Header = () => {
                     <div onClick={toggleActive}
                          className={isActive ? `${header.iconMenu} ${header._isActive}` : `${header.iconMenu}`}
                     ><span></span></div>
-                    <NavLink to={'/flowers_shop/basket'} className={header.basket}>
+                    <NavLink to={'/basket'} className={header.basket}>
                         <img src={basket}/>
-                        <span>{basketState.quantityAll ? `${basketState.quantityAll}` : null}</span>
+                        <span>{basketState.quantityAll ? `${basketState.quantityAll}` : '0'}</span>
                     </NavLink>
                 </div>
             </div>

@@ -14,7 +14,7 @@
 
 
 // За замовчуванням шрифт ===================================================================
-$fontFamily: "Roboto";
+$fontFamily: Roboto;
 $fontSize: 16px; //  - розмір шрифту за замовчуванням з макету
 
 // Основні кольори
@@ -72,35 +72,7 @@ body {
 
 
 div#root {
-  min-height: 100%;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
-
-/*
-(i) Стилі будуть застосовуватись до
-всіх класів, що містять *__container
-*/
-
-//[class*="_container"] {
-
-
-
-  //overflow: hidden;
-  //max-width: $maxWidthContainer + px;
-  //padding: 0px 15px;
-  //margin: 0 auto;
-//}
-
-
-//усі крім останнього
-//&:not(:last-child) {
-//    padding-right: 20px;
-//  }
-
-// @include adaptiveValue("property", 50, 20, 1);
-
-//@media (max-width: $mobile) {
-//            opacity: 0.2;
-//}
-

@@ -1,8 +1,7 @@
 import basket from './ItemBasket.module.scss'
-import resetButton from './../../../assets/image/icons/reset.png'
-import {useContext, useState} from "react";
-import {BasketContextType, BasketReducerContext} from "../../../reducer";
-import acceptImg from './../../../assets/image/icons/accept.svg'
+import resetButton from './../../../assets/image/icons/reset.svg'
+import {useContext} from "react";
+import {BasketContextType, BasketReducerContext} from "../../../reducers/BasketReducer";
 
 
 export type ItemBasketProps = {
@@ -20,7 +19,8 @@ export const ItemBasket = (props: ItemBasketProps) => {
         decreaseQuantityProduct,
         increaseQuantityProduct,
         deleteProduct,
-        toggleAddArticle} = useContext(BasketReducerContext) as BasketContextType
+        toggleAddArticle
+    } = useContext(BasketReducerContext) as BasketContextType
 
     const decreaseQuantity = () => {
         decreaseQuantityProduct(props.id)
@@ -33,13 +33,11 @@ export const ItemBasket = (props: ItemBasketProps) => {
     }
 
 
-    let [checked, setChecked] = useState(false)
-    const toggleCheckbox = (e) => {
+    const toggleCheckbox = (e:any) => {
 
-        // if (e.target.type === "checkbox") {
-            toggleAddArticle(2, e.target.checked)
-            setChecked(e.target.checked)
-        // }
+        if (e.target.type === "checkbox") {
+            toggleAddArticle(props.id, e.target.checked)
+        }
     }
 
     return (<div className={basket.item}>
@@ -48,17 +46,12 @@ export const ItemBasket = (props: ItemBasketProps) => {
                 <img src={props.image}/>
             </div>
             <div className={basket.name}>«{props.name}»</div>
-            <div className={basket.name}>«{props.id}»</div>
         </div>
         <div className={basket.row}>
             <div className={`${basket.addArticle} ${basket.column}`}>
                 <div className={basket.title}>Додати листівку з підписом</div>
-                <input name='addArticle' id='addArticle' type={'checkbox'} className={basket.addArticleInput}
-                       onChange={toggleCheckbox}/>
-                <label htmlFor='addArticle'
-                       className={checked ? `${basket.quantityInputLabel} ${basket.checked}` : `${basket.quantityInputLabel}`}>
-                    <img src={acceptImg}/>
-                </label>
+                <input name='addArticle' id='addArticle' type='checkbox' className={basket.addArticleInput}
+                       onChange={e => toggleCheckbox(e)}/>
             </div>
             <div className={`${basket.quantity} ${basket.column}`}>
                 <div className={basket.title}>Кількість</div>
@@ -66,7 +59,7 @@ export const ItemBasket = (props: ItemBasketProps) => {
                     <button className={basket.quantityButton} onClick={decreaseQuantity}
                             disabled={props.quantity <= 1}>-
                     </button>
-                    <input value={props.quantity} className={basket.quantityInput} disabled={true}/>
+                    <div className={basket.quantityInput}>{props.quantity}</div>
                     <button className={basket.quantityButton} onClick={increaseQuantity}>+</button>
                 </div>
             </div>

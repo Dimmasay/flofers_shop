@@ -1,7 +1,7 @@
 import contacts from './Contacts.module.scss'
-import location from './../../assets/image/icons/location.svg'
-import clock from './../../assets/image/icons/clock.svg'
-import phone from './../../assets/image/icons/phone.svg'
+import location from '../../assets/image/icons/location.svg'
+import clock from '../../assets/image/icons/clock.svg'
+import phone from '../../assets/image/icons/phone.svg'
 
 export const Contacts = () => {
     return (

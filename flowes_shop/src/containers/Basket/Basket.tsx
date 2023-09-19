@@ -1,7 +1,7 @@
 import bas from './Basket.module.scss'
 import {ItemBasket} from "./ItemBasket/ItemBasket";
 import {useContext, useState} from "react";
-import {BasketContextType, BasketReducerContext} from "../../reducer";
+import {BasketContextType, BasketReducerContext} from "../../reducers/BasketReducer";
 import {NavLink} from "react-router-dom";
 
 

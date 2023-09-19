@@ -1,4 +1,4 @@
-import {Services} from "../containers/Services/Services";
+import {Services} from "../blocks/Services/Services";
 import pages from "./Pages.module.scss";
 
 export const ServicesPage = () => {

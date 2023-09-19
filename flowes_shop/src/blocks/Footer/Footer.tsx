@@ -1,8 +1,8 @@
 import footer from './footer.module.scss'
-import logo from './../../assets/image/FLowerLogo.png'
-import instagram from './../../assets/image/icons/instagram.png'
-import fb from './../../assets/image/icons/fb.png'
-import whatsapp from './../../assets/image/icons/whatsapp.png'
+import logo from '../../assets/image/FLowerLogo.svg'
+import instagram from '../../assets/image/icons/instagram.png'
+import fb from '../../assets/image/icons/fb.png'
+import whatsapp from '../../assets/image/icons/whatsapp.png'
 import {NavLink} from "react-router-dom";
 
 

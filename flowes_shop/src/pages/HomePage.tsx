@@ -1,8 +1,8 @@
-import {FullScreen} from "../containers/FullScreen/Fullscreen";
-import {OurFavorites} from "../containers/OurFavorites/OurFavorites";
-import {Create} from "../containers/Create/Create";
+import {FullScreen} from "../blocks/FullScreen/Fullscreen";
+import {OurFavorites} from "../blocks/OurFavorites/OurFavorites";
+import {Create} from "../blocks/Create/Create";
 import {FormContainer} from "../containers/FormOrder/FormContainer";
-import {Contacts} from "../components/Contacts/Contacts";
+import {Contacts} from "../blocks/Contacts/Contacts";
 import pages from './Pages.module.scss'
 
 export const HomePage = () => {

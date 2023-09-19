@@ -1,7 +1,7 @@
 import * as React from "react";
 import {useReducer} from "react";
 
-enum ActionNameTypes {
+enum NamesTypeAction {
     ADD_NEW_PRODUCT_TO_BASKET = './ADD_NEW_PRODUCT_TO_BASKET',
     INCREASE_QUANTITY_PRODUCT = './INCREASE_QUANTITY_PRODUCT',
     DECREASE_QUANTITY_PRODUCT = './DECREASE_QUANTITY_PRODUCT',
@@ -11,16 +11,6 @@ enum ActionNameTypes {
     RESET_BASKET = './RESET_BASKET',
     TOGGLE_ADD_ARTICLE = './TOGGLE_ADD_ARTICLE',
 }
-
-//
-// let ADD_NEW_PRODUCT_TO_BASKET = './ADD_NEW_PRODUCT_TO_BASKET'
-// let INCREASE_QUANTITY_PRODUCT = './INCREASE_QUANTITY_PRODUCT'
-// let DECREASE_QUANTITY_PRODUCT = './DECREASE_QUANTITY_PRODUCT'
-// let DELETE_PRODUCT = './DELETE_PRODUCT'
-// let RESULT_SUM = './RESULT_SUM'
-// let QUANTITY_ALL = './QUANTITY_ALL'
-// let RESET_BASKET = './RESET_BASKET'
-// let TOGGLE_ADD_ARTICLE = './TOGGLE_ADD_ARTICLE'
 
 
 export type BasketContextType = {
@@ -32,8 +22,6 @@ export type BasketContextType = {
     setResetBasket: () => void,
     toggleAddArticle: (id: number, value: boolean) => void
 }
-
-
 export type ItemBasketType = {
     name: string,
     id: number,
@@ -43,7 +31,6 @@ export type ItemBasketType = {
     addArticle: boolean,
     sum: number
 }
-
 export type ProductType = {
     name: string,
     id: number,
@@ -55,6 +42,7 @@ export type StateType = {
     resultSum: number
     basket: ItemBasketType[]
 }
+
 
 let initialState: StateType = {
     quantityAll: null,
@@ -70,10 +58,12 @@ type ActionTypes = addNewProductToBasketType | increaseQuantityProductType |
     decreaseQuantityProductType | deleteProductType | getResultSumType
     | getQuantityAllType | setResetBasketType | toggleAddArticleType
 
-const reducer = (state: StateType, action: ActionTypes): any => {
+
+const basketReducer = (state: StateType, action: ActionTypes): any => {
     switch (action.type) {
-        case ActionNameTypes.ADD_NEW_PRODUCT_TO_BASKET:
-            let newProduct: ItemBasketType = {
+
+        case NamesTypeAction.ADD_NEW_PRODUCT_TO_BASKET:
+            let newElement: ItemBasketType = {
                 name: action.product.name,
                 id: action.product.id,
                 price: action.product.price,
@@ -82,80 +72,66 @@ const reducer = (state: StateType, action: ActionTypes): any => {
                 addArticle: false,
                 sum: action.product.price
             }
+            return {...state, basket: [...state.basket, newElement]}
 
-            return {...state, basket: [...state.basket, newProduct]}
-        case ActionNameTypes.INCREASE_QUANTITY_PRODUCT:
-
+        case NamesTypeAction.INCREASE_QUANTITY_PRODUCT:
             return {
                 ...state,
                 basket: [...state.basket.map(el => {
-                    if (el.id === action.id) {
-                        return {
+                    return (el.id === action.id)
+                        ? {
                             ...el,
                             sum: el.price * el.quantity,
-                            quantity: el.quantity++,
+                            quantity: el.quantity++
                         }
-                    } else {
-                        return el
-                    }
-
+                        : el
                 })]
             }
-        case ActionNameTypes.DECREASE_QUANTITY_PRODUCT:
-
+        case NamesTypeAction.DECREASE_QUANTITY_PRODUCT:
             return {
                 ...state, basket: [...state.basket.map(el => {
-                    if (el.id === action.id && el.quantity >= 1) {
-                        return {
+                    return (el.id === action.id && el.quantity >= 1)
+                        ? {
                             ...el,
                             sum: el.price * el.quantity,
-                            quantity: el.quantity--,
+                            quantity: el.quantity--
                         }
-                    } else {
-                        return el
-                    }
-
+                        : el
                 })]
             }
-        case ActionNameTypes.DELETE_PRODUCT:
+        case NamesTypeAction.DELETE_PRODUCT:
 
             return {...state, basket: [...state.basket.filter(el => el.id !== action.id)]}
 
-        case ActionNameTypes.RESULT_SUM :
+        case NamesTypeAction.RESULT_SUM :
 
             return {
                 ...state, resultSum: state.basket.reduce((acc, curr) => {
                     return acc + curr.quantity * curr.price
                 }, 0)
             }
-        case ActionNameTypes.QUANTITY_ALL :
+        case NamesTypeAction.QUANTITY_ALL :
 
             return {
                 ...state, quantityAll: state.basket.reduce((acc, curr) => {
                     return acc + curr.quantity
                 }, 0)
             }
-        case ActionNameTypes.RESET_BASKET :
+        case NamesTypeAction.RESET_BASKET :
             return {
                 ...state,
                 quantityAll: null,
                 resultSum: 0,
                 basket: []
             }
-        case ActionNameTypes.TOGGLE_ADD_ARTICLE:
+        case NamesTypeAction.TOGGLE_ADD_ARTICLE:
             console.log(action.id)
             return {
                 ...state,
                 basket: [...state.basket.map(el => {
-                        if (el.id === action.id) {
-                            return {...el, addArticle: action.value}
-                        } else {
-                            return el
-                        }
-                        //     return (el.id === action.id)
-                        //         ? {...el, addArticle: action.value}
-                        //         : {...el, addArticle: !action.value}
-
+                        return (el.id === action.id)
+                            ? {...el, addArticle: action.value}
+                            : {...el, addArticle: !action.value}
                     }
                 )]
             }
@@ -167,32 +143,32 @@ const reducer = (state: StateType, action: ActionTypes): any => {
 
 
 type addNewProductToBasketType = {
-    type: ActionNameTypes.ADD_NEW_PRODUCT_TO_BASKET,
+    type: NamesTypeAction.ADD_NEW_PRODUCT_TO_BASKET,
     product: ProductType
 }
 type decreaseQuantityProductType = {
-    type: ActionNameTypes.DECREASE_QUANTITY_PRODUCT,
+    type: NamesTypeAction.DECREASE_QUANTITY_PRODUCT,
     id: number
 }
 type increaseQuantityProductType = {
-    type: ActionNameTypes.INCREASE_QUANTITY_PRODUCT,
+    type: NamesTypeAction.INCREASE_QUANTITY_PRODUCT,
     id: number
 }
 type deleteProductType = {
-    type: ActionNameTypes.DELETE_PRODUCT,
+    type: NamesTypeAction.DELETE_PRODUCT,
     id: number
 }
 type getResultSumType = {
-    type: ActionNameTypes.RESULT_SUM,
+    type: NamesTypeAction.RESULT_SUM,
 }
 type getQuantityAllType = {
-    type: ActionNameTypes.QUANTITY_ALL,
+    type: NamesTypeAction.QUANTITY_ALL,
 }
 type setResetBasketType = {
-    type: ActionNameTypes.RESET_BASKET
+    type: NamesTypeAction.RESET_BASKET
 }
 type toggleAddArticleType = {
-    type: ActionNameTypes.TOGGLE_ADD_ARTICLE,
+    type: NamesTypeAction.TOGGLE_ADD_ARTICLE,
     id: number,
     value: boolean
 
@@ -203,44 +179,43 @@ type toggleAddArticleType = {
 export const BasketReducer: any = ({children}) => {
 
 // @ts-ignore
-    const [basketState, dispatch] = useReducer(reducer, initialState)
-
+    const [basketState, dispatch] = useReducer(basketReducer, initialState)
 
     const addNewProductToBasket = (product: ProductType) => {
-        dispatch({type: ActionNameTypes.ADD_NEW_PRODUCT_TO_BASKET, product})
+        dispatch({type: NamesTypeAction.ADD_NEW_PRODUCT_TO_BASKET, product})
         getResultSum()
         getQuantityAll()
 
     }
     const decreaseQuantityProduct = (id: number) => {
-        dispatch({type: ActionNameTypes.DECREASE_QUANTITY_PRODUCT, id})
+        dispatch({type: NamesTypeAction.DECREASE_QUANTITY_PRODUCT, id})
         getResultSum()
         getQuantityAll()
 
     }
     const increaseQuantityProduct = (id: number) => {
-        dispatch({type: ActionNameTypes.INCREASE_QUANTITY_PRODUCT, id})
+        dispatch({type: NamesTypeAction.INCREASE_QUANTITY_PRODUCT, id})
         getResultSum()
         getQuantityAll()
 
     }
     const deleteProduct = (id: number) => {
-        dispatch({type: ActionNameTypes.DELETE_PRODUCT, id})
+        dispatch({type: NamesTypeAction.DELETE_PRODUCT, id})
         getResultSum()
         getQuantityAll()
     }
     const getResultSum = () => {
-        dispatch({type: ActionNameTypes.RESULT_SUM})
+        dispatch({type: NamesTypeAction.RESULT_SUM})
     }
 
     const getQuantityAll = () => {
-        dispatch({type: ActionNameTypes.QUANTITY_ALL})
+        dispatch({type: NamesTypeAction.QUANTITY_ALL})
     }
     const setResetBasket = () => {
-        dispatch({type: ActionNameTypes.RESET_BASKET})
+        dispatch({type: NamesTypeAction.RESET_BASKET})
     }
     const toggleAddArticle = (id: number, value: boolean) => {
-        dispatch({type: ActionNameTypes.TOGGLE_ADD_ARTICLE, id, value})
+        dispatch({type: NamesTypeAction.TOGGLE_ADD_ARTICLE, id, value})
     }
 
 
