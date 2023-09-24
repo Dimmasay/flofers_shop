@@ -24,7 +24,7 @@ export const Catalog = () => {
         <div className={catalog.wrapper}>
             <div className={catalog.header}>
                 <div className={catalog.title}>Каталог</div>
-                <NavLink to={'/flowers_shop/services/create-bouquets'} className={catalog.buttonHeader}>Створити свій букет</NavLink>
+                <NavLink to={'/services/create-bouquets'} className={catalog.buttonHeader}>Створити свій букет</NavLink>
             </div>
             <div className={catalog.containerCatalog}>
                 <ul className={catalog.list}>

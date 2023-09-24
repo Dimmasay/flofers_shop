@@ -1,6 +1,6 @@
 import order from './FormOrder.module.scss'
 import {Formik, Field, Form} from 'formik';
-import orderImg from './../../assets/image/home/order.jpg'
+import orderImg from './../../assets/image/home/order.webp'
 import {bouquets} from "../../assets/bouquets";
 import {useEffect, useState} from "react";
 

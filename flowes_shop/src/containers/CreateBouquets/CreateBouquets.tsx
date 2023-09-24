@@ -1,7 +1,7 @@
 import create from './CreateBouquets.module.scss'
 import {flowers} from "../../assets/flowers";
 import {ItemFlower} from "./ItemFlower/ItemFlower";
-import banner from './../../assets/image/create/createBanner.jpg'
+import banner from './../../assets/image/create/createBanner.webp'
 
 export const CreateBouquets = () => {
 

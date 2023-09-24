@@ -1,16 +1,15 @@
 .item {
   display: flex;
   flex-direction: column;
-  &:hover {
-    .image {
-      transform: scale(1.01);
-      border-radius: 5px;
-      overflow: hidden;
-    }
+  overflow: hidden;
+  @media (any-hover: hover) {
 
-    //.btn{
-    //  padding-left: 30px;
-    //}
+    &:hover {
+      .image {
+        transform: scale(1.01);
+        border-radius: 5px;
+      }
+    }
   }
 }
 

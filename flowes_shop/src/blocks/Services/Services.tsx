@@ -1,5 +1,5 @@
 import services from './Services.module.scss'
-import banner from '../../assets/image/services/servicesBanner.jpg'
+import banner from '../../assets/image/services/servicesBanner.webp'
 import {ButtonOlive} from "../../components/ButtonOlive/ButtonOlive";
 
 

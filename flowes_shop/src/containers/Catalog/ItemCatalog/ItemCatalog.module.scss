@@ -1,17 +1,18 @@
 .item {
   padding-bottom: 10px;
   transition: all 0.3s ease 0s;
-  overflow: hidden;
+  @media (any-hover: hover) {
 
-  &:hover {
-    .image {
-      transform: scale(1.01);
-      border-radius: 5px;
-      overflow: hidden;
-    }
-
-    .btn {
-      padding-left: 5px;
+    &:hover {
+      .image {
+        transform: scale(1.01);
+        box-shadow: 0 0 32px rgba(97, 97, 97, 0.2);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+      .btn {
+        padding-left: 5px;
+      }
     }
   }
 

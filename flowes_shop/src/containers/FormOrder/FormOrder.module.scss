@@ -6,6 +6,7 @@
   padding: 0px 15px;
   margin: 0 auto;
   position: relative;
+  @include adaptiveValue('margin-bottom', 70, 20, 1);
   //padding-bottom: 35%;
   @media (max-width: 530px) {
     height: 640px;
@@ -25,10 +26,10 @@
 
 .title {
   font-family: Century Gothic;
-  font-size: 40px;
-  line-height: 48px;
   text-align: center;
   margin-bottom: 24px;
+  @include adaptiveValue('font-size', 40, 20, 1);
+  @include adaptiveValue('line-height', 48, 24, 1);
 
 }
 
@@ -54,6 +55,7 @@
 
 .inputRow {
   margin-bottom: 30px;
+  border-radius: 0;
 }
 
 .selectRow {
@@ -69,6 +71,9 @@
   font-weight: 400;
   line-height: 22px;
   cursor: pointer;
+
+  -webkit-appearance: none;
+  border-radius: 0;
 
   &.inputError {
     border: 1px solid red;
@@ -90,12 +95,15 @@
   letter-spacing: 0px;
 
   cursor: pointer;
-
-  color: #0000008F;
   padding: 15px 12px;
   border: 1px solid #858585;
   background-color: $lightOliveColor;
   width: 100%;
+  color: #858484;
+
+  &:hover {
+    color: #0000008F;
+  }
 
   &.inputError {
     border: 1px solid red;
@@ -104,21 +112,38 @@
 
 .startSelect {
   margin-bottom: 10px;
+  color: #0000008F;
 }
 
-.errorMessage{
+.errorMessage {
   padding: 15px;
-  div{
+
+  div {
     text-align: center;
     color: red;
-    &:not(:last-child){
+
+    &:not(:last-child) {
       margin-bottom: 5px;
     }
   }
 }
+
 .button {
   background-color: #FFFFFFA1;
   padding: 20px 50px;
+  font-family: Century Gothic;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19px;
+  text-align: center;
+  transition: all 0.3s;
+  @media (any-hover: hover) {
+    &:hover {
+      box-shadow: 0 0 32px rgba(97, 97, 97, 0.2);
+    }
+  }
+
+
 }
 
 .orderImg {

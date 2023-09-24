@@ -176,7 +176,10 @@
   cursor: pointer;
   &:checked {
     position: relative;
+  }
 
+  &:hover {
+    box-shadow: 0 0 32px rgba(97, 97, 97, 0.2);
   }
   &:checked::before {
     content: "";

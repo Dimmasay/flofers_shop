@@ -1,21 +1,21 @@
-import Image1 from './image/bouquets/1.jpg'
-import Image2 from './image/bouquets/2.jpg'
-import Image3 from './image/bouquets/3.jpg'
-import Image4 from './image/bouquets/4.jpg'
-import Image5 from './image/bouquets/5.jpg'
-import Image6 from './image/bouquets/6.jpg'
-import Image7 from './image/bouquets/7.jpg'
-import Image8 from './image/bouquets/8.jpg'
-import Image9 from './image/bouquets/9.jpg'
-import Image10 from './image/bouquets/10.jpg'
-import Image11 from './image/bouquets/11.jpg'
-import Image12 from './image/bouquets/12.jpg'
-import Image13 from './image/bouquets/13.jpg'
-import Image14 from './image/bouquets/14.jpg'
-import Image15 from './image/bouquets/15.jpg'
-import Image16 from './image/bouquets/16.jpg'
-import Image17 from './image/bouquets/17.jpg'
-import Image18 from './image/bouquets/18.jpg'
+import Image1 from './image/bouquets/1.webp'
+import Image2 from './image/bouquets/2.webp'
+import Image3 from './image/bouquets/3.webp'
+import Image4 from './image/bouquets/4.webp'
+import Image5 from './image/bouquets/5.webp'
+import Image6 from './image/bouquets/6.webp'
+import Image7 from './image/bouquets/7.webp'
+import Image8 from './image/bouquets/8.webp'
+import Image9 from './image/bouquets/9.webp'
+import Image10 from './image/bouquets/10.webp'
+import Image11 from './image/bouquets/11.webp'
+import Image12 from './image/bouquets/12.webp'
+import Image13 from './image/bouquets/13.webp'
+import Image14 from './image/bouquets/14.webp'
+import Image15 from './image/bouquets/15.webp'
+import Image16 from './image/bouquets/16.webp'
+import Image17 from './image/bouquets/17.webp'
+import Image18 from './image/bouquets/18.webp'
 
 export type bouquetType = {
     name: string,
@@ -49,4 +49,4 @@ export const bouquets: bouquetType[] = [
     {name: 'Пізня Осінь', id: 18, price:  450 , image: Image18, sortList: ['all','fest', 'toWedding', ]},
 ]
 
-export const favoritesNames: string[] = ['Ніжність', 'Барви', 'Літній']
+export const favoritesNames: string[] = ['Пізня Осінь', 'Ніжність', 'Барви', 'Літній','Стриманість', 'Пристрасть']

@@ -22,12 +22,15 @@ export const ItemBasket = (props: ItemBasketProps) => {
         toggleAddArticle
     } = useContext(BasketReducerContext) as BasketContextType
 
+
+
     const decreaseQuantity = () => {
         decreaseQuantityProduct(props.id)
     }
     const increaseQuantity = () => {
         increaseQuantityProduct(props.id)
     }
+
     const delProduct = () => {
         deleteProduct(props.id)
     }

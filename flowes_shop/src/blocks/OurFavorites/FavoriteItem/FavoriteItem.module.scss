@@ -1,14 +1,30 @@
 @import "../../../index";
 
+
 .item {
-  flex: 0 1 275px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  @media (any-hover: hover) {
+    &:hover {
+      //overflow: hidden;
+
+      .image {
+      box-shadow: 0 0 32px rgba(97, 97, 97, 0.2);
+        transform: scale(1.01);
+        border-radius: 5px;
+      }
+    }
+  }
 }
+
 
 .image {
   position: relative;
   width: 100%;
-  padding-bottom: 145%;
-  margin-bottom: 20px;
+  padding-bottom: 133%;
+  @include adaptiveValue('margin-bottom', 20, 15, 1);
 
   img {
     position: absolute;
@@ -21,33 +37,47 @@
 }
 
 .info {
+  flex: 1 1 auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  margin-bottom: 28px;
+  @include adaptiveValue('margin-bottom', 28, 20, 1);
 }
 
 .name {
   font-family: "Noto Sans";
-  font-size: 20px;
-  line-height: 24px;
+  text-align: left;
+  padding-right: 5px;
+  @include adaptiveValue('font-size', 20, 14, 1);
+  @include adaptiveValue(' line-height', 24, 16, 1);
 }
 
 .price {
   font-family: "Century Gothic";
   font-size: 15px;
   line-height: 18px;
+  flex: 0 0 70px;
+  text-align: right;
 }
 
 .orderButton {
+  flex-grow: 0;
+  flex-shrink: 0;
+  @include adaptiveValue('flex-basis', 48, 36, 1);
+
+  height: 48px;
   width: 100%;
-  padding: 12px 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   background-color: $lightOliveColor;
   transition: all 0.3s ease 0s;
-  &:hover {
-    background-color: #b0b0aa;
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #b0b0aa;
+    }
   }
 }
 

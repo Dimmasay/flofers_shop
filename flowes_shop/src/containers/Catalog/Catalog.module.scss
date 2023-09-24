@@ -57,8 +57,10 @@
   color: white;
   @include adaptiveValue('font-size', 24, 18, 1);
 
-  &:hover {
-    background-color: #9C946BB2;
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #9C946BB2;
+    }
   }
 
   @media (max-width: $tablet) {
@@ -107,9 +109,11 @@
   &:not(last-child) {
     margin-bottom: 15px;
   }
+  @media (any-hover: hover) {
 
-  &:hover {
-    border-bottom: 2px solid #000000;
+    &:hover {
+      border-bottom: 2px solid #000000;
+    }
   }
 
   @media (max-width: $tablet) {

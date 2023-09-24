@@ -1,6 +1,6 @@
-import fullImage1 from '../../assets/image/home/fullscreen/1.jpg'
-import fullImage2 from '../../assets/image/home/fullscreen/2.jpg'
-import fullImage3 from '../../assets/image/home/fullscreen/3.jpg'
+import fullImage1 from '../../assets/image/home/fullscreen/1.webp'
+import fullImage2 from '../../assets/image/home/fullscreen/2.webp'
+import fullImage3 from '../../assets/image/home/fullscreen/3.webp'
 
 import full from './Fullscreen.module.scss'
 import {ButtonOlive} from "../../components/ButtonOlive/ButtonOlive";

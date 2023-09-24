@@ -78,11 +78,18 @@ const basketReducer = (state: StateType, action: ActionTypes): any => {
             return {
                 ...state,
                 basket: [...state.basket.map(el => {
-                    return (el.id === action.id)
+                    // return el.id === action.id
+                    //     ? {
+                    //         ...el,
+                    //         sum: el.price * el.quantity,
+                    //         quantity: el.quantity ++,
+                    //     }
+                    //     : el
+                    return el.id === action.id
                         ? {
                             ...el,
-                            sum: el.price * el.quantity,
-                            quantity: el.quantity++
+                            sum: el.price * (el.quantity +1) ,
+                            quantity: el.quantity +1,
                         }
                         : el
                 })]
@@ -90,11 +97,11 @@ const basketReducer = (state: StateType, action: ActionTypes): any => {
         case NamesTypeAction.DECREASE_QUANTITY_PRODUCT:
             return {
                 ...state, basket: [...state.basket.map(el => {
-                    return (el.id === action.id && el.quantity >= 1)
+                    return el.id === action.id && el.quantity >= 1
                         ? {
                             ...el,
-                            sum: el.price * el.quantity,
-                            quantity: el.quantity--
+                            sum: el.price * (el.quantity -1),
+                            quantity: el.quantity -1
                         }
                         : el
                 })]

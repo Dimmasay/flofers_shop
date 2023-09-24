@@ -1,44 +1,66 @@
 @import '../../index';
-.container{
-  max-width: 100%;
+
+.container {
+  max-width: $maxWidthContainer + px;
+  padding-right: 15px;
+  padding-left: 15px;
+
+  margin: 0 auto;
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  @include adaptiveValue('padding-top', 70, 30, 1);
+  @media (max-width: $tablet) {
+    padding-right: 0px;
+    padding-left: 0px;
+  }
 
-  width: $maxWidthContainer + px;
-  padding: 70px 15px 0px 15px;
-  margin: 0 auto;
+
 }
-.title{
+
+.title {
   font-family: Century Gothic;
-  font-size: 36px;
-  line-height: 62px;
-  margin-bottom: 40px;
   text-align: center;
+  @include adaptiveValue('margin-bottom', 40, 20, 1);
+  @include adaptiveValue('font-size', 36, 31, 1);
+  @include adaptiveValue('line-height', 62, 48, 1);
 
 
 }
-.list {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 90px;
-  justify-content: space-evenly;
-  padding: 40px 0px;
+
+.containerSwiper {
+  width: 100%;
   position: relative;
-  &::after{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+
+  &::after {
     content: '';
     position: absolute;
     top: 0;
     width: 100%;
     height: 2px;
     background-color: $oliveColor;
+    @media (max-width: $tablet) {
+      width: 80%;
+    }
   }
-  &::before{
+
+  &::before {
     content: '';
     position: absolute;
     bottom: 0;
     width: 100%;
     height: 2px;
     background-color: $oliveColor;
+    @media (max-width: $tablet) {
+      width: 80%;
+    }
   }
 }
+
+

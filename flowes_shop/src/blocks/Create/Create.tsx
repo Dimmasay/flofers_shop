@@ -1,5 +1,5 @@
 import create from './Create.module.scss'
-import createImage from '../../assets/image/home/create.jpg'
+import createImage from '../../assets/image/home/create.webp'
 import {ButtonOlive} from "../../components/ButtonOlive/ButtonOlive";
 import {NavLink} from "react-router-dom";
 

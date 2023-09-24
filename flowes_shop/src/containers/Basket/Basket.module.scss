@@ -82,16 +82,20 @@
   color: white;
   transition: all 0.3s ease 0s;
 
-  &:hover {
-    background-color: #9C946B45;
-    color: black;
-  }
-  @media (max-width: 600px) {
-    width: 100%;
-    text-align: center;
-  }
   &:disabled{
     background-color: #9C946B45;
     color: rgba(0, 0, 0, 0.44);
+  }
+
+  @media (any-hover: hover) {
+    &:hover {
+      background-color: #9C946B45;
+      color: black;
+    }
+  }
+
+  @media (max-width: 600px) {
+    width: 100%;
+    text-align: center;
   }
 }
